@@ -48,11 +48,38 @@ För att köra appen lokalt behöver du ha Python och Node.js installerade på d
    npm install
    ```
 
-2. Starta Vite-servern:
+2. Skapa en `server.js`-fil i frontend-mappen för att hantera proxy mellan frontend och backend. Filen ska se ut så här:
+
+   ```js
+   // server.js
+   const { createServer } = require("vite");
+
+   createServer({
+     server: {
+       proxy: {
+         "/api": "http://localhost:5000", // Proxy till Flask-backend
+       },
+     },
+   }).then(server => {
+     server.listen(3000, () => {
+       console.log("Vite server is running at http://localhost:3000");
+     });
+   });
+   ```
+
+3. Starta Node.js-servern:
+   ```bash
+   node server.js
+   ```
+
+   Detta kommer att starta servern på port 3000 och proxy all trafik från `/api` till Flask-backend på port 5000.
+
+4. Starta Vite-servern separat:
    ```bash
    npm run dev
    ```
-   Vite-servern bör nu vara igång på http://localhost:5173.
+
+   Vite-servern bör nu vara igång på http://localhost:5173 och din frontend kommer att kommunicera med Flask-backend via den proxy som definierats.
 
 ## Användning
 
