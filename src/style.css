@@ -1,0 +1,219 @@
+/* Bakgrundsvideo */
+video#background-video {
+  position: fixed;  /* Gör att videon ligger fast på skärmen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Täcker hela skärmen och bibehåller aspect ratio */
+  z-index: -1;        /* Lägger videon i bakgrunden */
+}
+
+/* Grundläggande styling för body */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Förhindrar att skrolla */
+}
+
+/* Container för hela appen */
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);  /* Lätt genomskinlig bakgrund */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;  /* Rundade hörn för en mjukare känsla */
+  position: relative;
+  z-index: 1; /* Sätter innehållet ovanför videon */
+  animation: fadeIn 0.5s ease-in-out; /* Animation för en mjuk in-fade */
+}
+
+/* Animation för smidig in-fade när sidan laddas */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Titel för appen */
+h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Fitness-bild */
+.fitness-image {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Sökfält */
+#search-query {
+  padding: 12px;
+  width: 80%;
+  max-width: 400px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  transition: border 0.3s ease;
+}
+
+/* När användaren fokuserar på sökfältet */
+#search-query:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Sök-knappen */
+#search-btn {
+  padding: 12px 24px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover-effekt för sök-knappen */
+#search-btn:hover {
+  background-color: #45a049;
+}
+
+/* Inaktiverad sök-knapp */
+#search-btn:disabled {
+  background-color: #b0b0b0;
+  cursor: not-allowed;
+}
+
+/* Chattcontainer */
+.results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-height: 400px;
+  overflow-y: auto; /* Gör det möjligt att scrolla vertikalt */
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Animation för att rulla upp chatten */
+@keyframes slideUp {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Loading-indikatorn */
+#loading-indicator {
+  font-size: 16px;
+  color: #4CAF50;
+  text-align: center;
+  margin-top: 20px;
+  display: none;
+  font-weight: 600;
+}
+
+/* För att visa loading-indikator */
+#loading-indicator.active {
+  display: block;
+}
+
+/* Meddelandestilar */
+.chat-message {
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  word-wrap: break-word; /* Förhindrar långa ord från att förstöra layouten */
+  width: 100%;
+  max-width: 80%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeInMessage 0.4s forwards;
+}
+
+/* Animation för att få meddelandet att tona in */
+@keyframes fadeInMessage {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Användarens meddelanden */
+.user-message {
+  background-color: #e0ffe0; /* Ljusgrön bakgrund för användaren */
+  color: #333;
+  text-align: right;
+  align-self: flex-end;
+}
+
+/* Chatbotens meddelanden */
+.assistant-message {
+  background-color: #f0f0f0; /* Ljusgrå bakgrund för assistenten */
+  color: #333;
+  text-align: left;
+  align-self: flex-start;
+}
+
+/* Specifik stil för felmeddelanden */
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Rullning till botten av chattfönstret */
+.results-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Ser till att det senaste meddelandet alltid är i botten */
+  overflow-y: auto; /* Behåll scrollning möjlig */
+  max-height: 400px; /* Sätt en maxhöjd på chatten */
+}
+
+/* Specifik stil för att dölja resultat om inget finns */
+#results.empty {
+  color: gray;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Lägg till en liten knapp för att rensa meddelandena */
+#clear-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #FF6F61;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+#clear-btn:hover {
+  background-color: #e65c4f;
+}

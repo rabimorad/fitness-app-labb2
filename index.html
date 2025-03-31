@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="/src/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness App</title>
+  </head>
+  <body>
+    <!-- Bakgrundsvideo -->
+    <video id="background-video" autoplay muted loop>
+      <source src="/public/img/pt.mp4" type="video/mp4">
+      Din webbläsare stödjer inte video.
+    </video>
+
+    <div class="container">
+      <h1>Välkommen till FitnessAppen</h1>
+
+      <!-- Visuella element för appen -->
+      <img src="/public/img/gym.webp" alt="Fitness Image" class="fitness-image">
+
+      <!-- Sökfält för att ställa frågor -->
+      <div class="search-container">
+        <input type="text" id="search-query" placeholder="Fråga om övningar eller träningsprogram..." />
+        <button id="search-btn">Sök</button>
+      </div>
+
+      <!-- Loading indikator -->
+      <div id="loading-indicator" class="loading-indicator" style="display: none;">
+        Laddar...
+      </div>
+
+      <!-- Här visas svaret från backend -->
+      <div id="results" class="results-container"></div>
+    </div>
+
+    <!-- Lägg till main.js -->
+    <script src="src/main.js"></script>
+  </body>
+</html>

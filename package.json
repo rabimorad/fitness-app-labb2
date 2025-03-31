@@ -1,0 +1,40 @@
+{
+  "name": "exercise-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "@huggingface/inference": "^3.6.2",
+    "@huggingface/transformers": "^3.4.0",
+    "@supabase/supabase-js": "^2.49.3",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-node": "^4.22.0",
+    "axios": "^1.8.4",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "cosine-similarity": "^1.0.1",
+    "csv-parser": "^3.2.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "json2csv": "^6.0.0-alpha.2",
+    "node-fetch": "^2.7.0",
+    "openai": "^4.88.0",
+    "pg": "^8.14.1",
+    "supabase": "^2.20.3"
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
