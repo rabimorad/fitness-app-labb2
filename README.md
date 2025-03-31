@@ -83,6 +83,3 @@ När appen är igång kan du öppna den i din webbläsare genom att gå till htt
 - Förbättra NLP-modellen för att hantera mer komplexa frågor.
 - Implementera användarautentisering för att spara favoritövningar.
 
----
-
-Nu kan du justera texten vidare beroende på vad du vill förändra. Låt mig veta om du vill ha några ytterligare ändringar eller justeringar!
