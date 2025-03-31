@@ -109,4 +109,3 @@ När appen är igång kan du öppna den i din webbläsare genom att gå till htt
 - Lägg till fler övningar och muskelgrupper.
 - Förbättra NLP-modellen för att hantera mer komplexa frågor.
 - Implementera användarautentisering för att spara favoritövningar.
-
